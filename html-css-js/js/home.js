@@ -8,5 +8,10 @@ $("#button").click(function() {
   };
   $.post("/api/new", recipe).then(function() {
     console.log("success");
+
+  }).then(function(){
+    $("#name").val(""),
+    $("#ingredient").val(""),
+    $("#recipe").val("")
   });
 });
