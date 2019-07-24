@@ -1,0 +1,9 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+.member-name{
+  font-size: 18px;
+  align-content: right
+}
