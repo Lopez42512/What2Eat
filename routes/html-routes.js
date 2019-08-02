@@ -25,6 +25,10 @@ module.exports = function(app){
         res.sendFile(path.join(__dirname, "../public/members.html"))
     })
 
+    app.get("/recipe", isAuthenticated, function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/recipe.html"))
+    })
+
     app.get("/food", (req, res) => {
         res.sendFile(path.join(__dirname, "../html-css-js/html/home.html"))
     })

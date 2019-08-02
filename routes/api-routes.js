@@ -9,7 +9,8 @@ module.exports = function(app) {
       name: req.body.name,
       ingredient: req.body.ingredient,
       recipe: req.body.recipe,
-      memberId: req.body.memberId
+      memberId: req.body.memberId,
+      image: req.body.image
     }).then(function(results) {
       res.end();
     });
@@ -32,6 +33,11 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     res.json("/members");
+  });
+
+  app.post("/api/recipe", function(req, res) {
+    // console.log(req.body);
+    res.json("/recipe");
   });
   //
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -65,12 +71,29 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
+      
+      // console.log(food);
+      // console.log(req)
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        email: req.user.email,
-        id: req.user.id
+        // food: food,
+      email: req.user.email,
+      id: req.user.id
       });
     }
+  });
+
+  app.get("/user/recipe", function(req, res) {
+    // console.log(req.query.id)
+    console.log(req.user.id)
+    db.Food.findAll({
+      where: {
+        memberId: req.user.id
+      }
+    }).then(function(results, req) {
+      
+      res.json(results);
+    });
   });
 };

@@ -1,3 +1,7 @@
+body{
+  margin: 0
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -6,4 +10,15 @@ form.login {
 .member-name{
   font-size: 18px;
   align-content: right
+}
+
+img{
+  width: 100px;
+  height: 100px;
+}
+
+.row{
+  width: 100%;
+  text-align: center;
+  background-color: aquamarine
 }

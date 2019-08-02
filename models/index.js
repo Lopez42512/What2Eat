@@ -41,4 +41,10 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.users = require("./user")(sequelize, Sequelize);
+db.foods = require("./food")(sequelize, Sequelize)
+
+db.users.hasMany(db.foods);
+db.foods.belongsTo(db.users)
+
 module.exports = db;
