@@ -17,8 +17,18 @@ img{
   height: 100px;
 }
 
-.row{
+.recipe{
   width: 100%;
   text-align: center;
-  background-color: aquamarine
+  background-color: aquamarine;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.picRecipe{
+  width: 100%;
+  text-align: center;
+  background-color: rgb(255, 127, 127);
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
