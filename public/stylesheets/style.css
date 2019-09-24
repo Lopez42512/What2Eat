@@ -32,3 +32,12 @@ img{
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
+.selectRecipe{
+  width: 100%;
+  height: 50%;
+}
+
+h6{
+  font-size: 0px
+}

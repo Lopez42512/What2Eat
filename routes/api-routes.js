@@ -1,5 +1,6 @@
 var db = require("../models");
 const passport = require("../config/passport");
+var request = require('ajax-request');
 
 module.exports = function(app) {
   app.post("/api/new", function(req, res) {
@@ -71,28 +72,28 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      
       // console.log(food);
       // console.log(req)
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         // food: food,
-      email: req.user.email,
-      id: req.user.id
+        email: req.user.email,
+        id: req.user.id
       });
     }
   });
 
+  
+
   app.get("/user/recipe", function(req, res) {
     // console.log(req.query.id)
-    console.log(req.user.id)
+    console.log(req.user.id);
     db.Food.findAll({
       where: {
         memberId: req.user.id
       }
     }).then(function(results, req) {
-      
       res.json(results);
     });
   });
