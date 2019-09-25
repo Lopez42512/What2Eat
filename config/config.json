@@ -4,6 +4,7 @@
       "password": "",
       "database": "what2eatDB",
       "host": "localhost",
+      "port":3306,
       "dialect": "mysql"
     },
     "test": {
