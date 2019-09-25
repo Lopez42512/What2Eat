@@ -27,9 +27,15 @@ app.use(passport.session());
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
+var syncOptions = { force: false };
 
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
 
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
